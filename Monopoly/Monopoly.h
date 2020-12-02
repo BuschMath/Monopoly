@@ -14,7 +14,7 @@ private:
 	Board board;
 	Dice dice;
 	Pieces pieces;
-	std::vector<Players> players;
+	Players[8] players;
 	Bank bank;
 	Cards chance;
 	Cards community_chest;

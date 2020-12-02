@@ -150,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bank.cpp" />
+    <ClCompile Include="Board.cpp" />
     <ClCompile Include="Deed.cpp" />
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="Die.cpp" />
