@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="Bank.h" />
     <ClInclude Include="Board.h" />
+    <ClInclude Include="Cards.h" />
     <ClInclude Include="Deed.h" />
     <ClInclude Include="Dice.h" />
     <ClInclude Include="Die.h" />
@@ -151,6 +152,7 @@
   <ItemGroup>
     <ClCompile Include="Bank.cpp" />
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Cards.cpp" />
     <ClCompile Include="Deed.cpp" />
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="Die.cpp" />

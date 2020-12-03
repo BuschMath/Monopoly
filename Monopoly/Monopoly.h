@@ -13,7 +13,6 @@ public:
 private:
 	Board board;
 	Dice dice;
-	Pieces pieces;
 	Players[8] players;
 	Bank bank;
 	Cards chance;
