@@ -2,6 +2,8 @@
 #define CARDS_H
 
 #include <string>
+#include "StackP.h"
+#include "ListA.h"
 
 enum class CardAction
 {
@@ -21,6 +23,7 @@ enum class CardOutcome
 	ReadingRailroad,
 	Boardwalk,
 	Jail,
+	BackThree,
 	GetOutOfJailFree,
 	GetFifty,
 	GetOneHundredFifty,
@@ -62,13 +65,14 @@ public:
 	Card Draw();
 
 private:
-	Card cards[17];
+	StackClass stack;
+	listClass list;
 	CardType type;
-	int loc;
 
 	void SetChance();
 	void SetCommunityChest();
 	void SetError();
+	void SetListCard(std::string text, CardAction action, CardOutcome outcome);
 };
 
 #endif // !CARDS_H

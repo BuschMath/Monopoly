@@ -5,6 +5,7 @@
 #include "Dice.h"
 #include "Bank.h"
 #include "Board.h"
+#include "Cards.h"
 
 class Monopoly
 {
