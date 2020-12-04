@@ -1,11 +1,14 @@
 #include <iostream>
-#include "Deed.h"
+#include "Cards.h"
 
 int main()
 {
-	Deed prop(DeedName::BalticAvenue);
+	Cards chance(CardType::Chance);
 
-	std::cout << prop.GetRent(0);
+	for (int i = 0; i < 17; i++)
+	{
+		std::cout << chance.Draw().text << std::endl;
+	}
 
 	return 0;
 }

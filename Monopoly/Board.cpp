@@ -62,7 +62,6 @@ Board::Board()
 
 Board::~Board()
 {
-	delete board;
 }
 
 Space Board::SetSpace(DeedName deed, Owner owner, SpaceType type)

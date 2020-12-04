@@ -5,7 +5,9 @@
 Cards::Cards(CardType type_)
 {
 	type = type_;
-	srand(time(NULL));
+	srand((unsigned int)time(NULL));
+
+	listSize = 0;
 
 	switch (type)
 	{
@@ -28,25 +30,29 @@ void Cards::Shuffle()
 	bool Success = false;
 	int num = 0;
 
-	while (list.ListLength() != 0)
+	while (listSize != 0)
 	{
-		num = rand() % list.ListLength() + 1;
-		list.ListRetrieve(num, item, Success);
-		stack.Push(item);
-		list.ListDelete(num, Success);
+		num = rand() % listSize;
+		
+		item = rList[num];
+		deck.push(item);
+
+		listSize--;
+		for (int i = num; i < listSize; i++)
+			rList[i] = rList[i + 1];
 	}
 }
 
 Card Cards::Draw()
 {
-	if (stack.IsEmpty() == true)
+	if (deck.size() == 0)
 		Shuffle();
 
 	Card item;
-	stack.Pop(item);
+	item = deck.top();
+	deck.pop();
 
-	bool temp;
-	list.ListInsert(list.ListLength() + 1, item, temp);
+	rList[listSize++] = item;
 
 	return item;
 }
@@ -118,6 +124,5 @@ void Cards::SetError()
 
 void Cards::SetListCard(std::string text, CardAction action, CardOutcome outcome)
 {
-	bool Success = false;
-	list.ListInsert(list.ListLength() + 1, Card{ text, action, outcome }, Success);
+	rList[listSize++] = Card{ text, action, outcome };
 }

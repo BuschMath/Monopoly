@@ -34,8 +34,8 @@ enum class SpaceType
 struct Space
 {
 	Deed info;
-	SpaceType type;
-	Owner owner;
+	SpaceType type = SpaceType::Jail;
+	Owner owner = Owner::Bank;
 };
 
 class Board

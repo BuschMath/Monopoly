@@ -2,8 +2,9 @@
 #define CARDS_H
 
 #include <string>
-#include "StackP.h"
-#include "ListA.h"
+#include <stack>
+
+const int deckSize = 17;
 
 enum class CardAction
 {
@@ -43,9 +44,9 @@ enum class CardOutcome
 
 struct Card
 {
-	std::string text;
-	CardAction action;
-	CardOutcome outcome;
+	std::string text = "";
+	CardAction action = CardAction::GoTo;
+	CardOutcome outcome = CardOutcome::Jail;
 };
 
 enum class CardType
@@ -65,9 +66,10 @@ public:
 	Card Draw();
 
 private:
-	StackClass stack;
-	listClass list;
+	std::stack<Card> deck;
+	Card rList[deckSize];
 	CardType type;
+	int listSize;
 
 	void SetChance();
 	void SetCommunityChest();
