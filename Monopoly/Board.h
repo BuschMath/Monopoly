@@ -4,6 +4,17 @@
 #include <string>
 #include "Properties.h"
 
+const int totalBoardSpaces = 41;
+const int jailLoc = 11;
+const int goToJailLoc = 31;
+const int go = 0;
+const int gotoBoardwalk = 40;
+const int gotoIllinoisAvenue = 25;
+const int gotoStCharlesPlace = 12;
+const int gotoElectric = 13;
+const int gotoWater = 29;
+const int gotoReadingRailroad = 5;
+
 enum class Owner
 {
 	Bank,
@@ -45,18 +56,14 @@ public:
 	~Board();
 
 	Space SetSpace(DeedName deed, Owner owner, SpaceType type);
+	Space GetSpace(int spaceNo) { return board[spaceNo]; };
+	Space Roll(int playerNo, int rollTotal);
+	void SetPlayerLoc(int playerNo, int loc);
+	int getPlayerLoc(int playerNo) { return playerLocation[playerNo]; };
 
 private:
-	Space* playerLocation[8];
-	Space board[41];
-	Space* go;
-	Space* gotoBoardwalk;
-	Space* gotoIllinoisAvenue;
-	Space* gotoStCharlesPlace;
-	Space* gotoElectric;
-	Space* gotoWater;
-	Space* gotoJail;
-	Space* gotoReadingRailroad;
+	int playerLocation[8];
+	Space board[totalBoardSpaces];
 
 	Space SetProperty(DeedName deed);
 	Space SetCard(SpaceType type);

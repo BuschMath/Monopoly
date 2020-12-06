@@ -7,6 +7,7 @@ public:
 	Money();
 
 	void SetupBank();
+	void PlayerSetup();
 	bool Give(int ones, int fives, int tens, int twenties, int fifties, int hundreds, int fiveHundreds);
 	void Get(int ones, int fives, int tens, int twenties, int fifties, int hundreds, int fiveHundreds);
 	int CountTotal() { return total; };

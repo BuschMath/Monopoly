@@ -3,11 +3,10 @@
 Board::Board()
 {
 	board[0] = SetSpace(DeedName::NameError, Owner::Bank, SpaceType::Go);
-	go = &board[0];
 	
 	for (int i = 0; i < 8; i++)
 	{
-		playerLocation[i] = go;
+		playerLocation[i] = 0;
 	}
 
 	board[1] = SetProperty(DeedName::MediterraneanAvenue);
@@ -50,14 +49,6 @@ Board::Board()
 	board[38] = SetProperty(DeedName::ParkPlace);
 	board[39] = SetCard(SpaceType::LuxuryTax);
 	board[40] = SetProperty(DeedName::Boardwalk);
-
-	gotoBoardwalk = &board[40];
-	gotoIllinoisAvenue = &board[25];
-	gotoStCharlesPlace = &board[12];
-	gotoElectric = &board[13];
-	gotoWater = &board[29];
-	gotoJail = &board[11];
-	gotoReadingRailroad = &board[5];
 }
 
 Board::~Board()
@@ -73,6 +64,29 @@ Space Board::SetSpace(DeedName deed, Owner owner, SpaceType type)
 
 
 	return temp;
+}
+
+Space Board::Roll(int playerNo, int rollTotal)
+{
+	if(playerLocation[playerNo] + rollTotal <= totalBoardSpaces - 1)
+		playerLocation[playerNo] += rollTotal;
+	else
+	{
+		playerLocation[playerNo] = playerLocation[playerNo] + rollTotal - totalBoardSpaces;
+	}
+
+	if (playerLocation[playerNo] == jailLoc)
+		playerLocation[playerNo]++;
+
+	if (playerLocation[playerNo] == goToJailLoc)
+		playerLocation[playerNo] = jailLoc;
+	
+	return GetSpace(playerLocation[playerNo]);
+}
+
+void Board::SetPlayerLoc(int playerNo, int loc)
+{
+	playerLocation[playerNo] = loc;
 }
 
 Space Board::SetProperty(DeedName deed)

@@ -24,6 +24,18 @@ void Money::SetupBank()
 	noFiveHundreds = 30;
 }
 
+void Money::PlayerSetup()
+{
+	total = 1500;
+	noOnes = 5;
+	noFives = 1;
+	noTens = 2;
+	noTwenties = 1;
+	noFifties = 1;
+	noHundreds = 4;
+	noFiveHundreds = 2;
+}
+
 bool Money::Give(int ones, int fives, int tens, int twenties, int fifties, int hundreds, int fiveHundreds)
 {
 	int trans = (ones + 5 * fives + 10 * tens + 20 * twenties + 50 * fifties + 100 * hundreds +
