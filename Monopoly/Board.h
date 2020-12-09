@@ -14,6 +14,9 @@ const int gotoStCharlesPlace = 12;
 const int gotoElectric = 13;
 const int gotoWater = 29;
 const int gotoReadingRailroad = 5;
+const int gotoPennsylvaniaRailroad = 16;
+const int gotoBORailroad = 26;
+const int gotoShortLine = 36;
 
 enum class Owner
 {
