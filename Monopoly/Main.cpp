@@ -9,8 +9,8 @@ int main()
 
 	game.Play(1);
 
-	int* freq = game.getFreq();
-	int* freqProp = game.getFreqProp();
+	long long* freq = game.getFreq();
+	long long* freqProp = game.getFreqProp();
 
 	std::ofstream outfile;
 	outfile.open("MonopolySpaceRelativeFrequency.dat");
@@ -31,7 +31,8 @@ int main()
 
 	for (int i = 0; i < 10; i++)
 	{
-		std::cout << titles[i] << ": " << float(freq[i]) / float(totalRolls) << "%" << std::endl;
+		std::cout << titles[i] << ": " << float(freq[i]) / float(totalRolls) * 100 << "%" << std::endl;
+		outfile << titles[i] << ": " << float(freq[i]) / float(totalRolls) * 100 << "%" << std::endl;
 	}
 
 	std::cout << std::endl;
@@ -44,7 +45,8 @@ int main()
 
 	for (int i = 0; i < 29; i++)
 	{
-		std::cout << propNames[i] << ": " << float(freqProp[i]) / float(totalRolls) << std::endl;
+		std::cout << propNames[i] << ": " << float(freqProp[i]) / float(totalRolls) * 100 << "%" << std::endl;
+		outfile << propNames[i] << ": " << float(freqProp[i]) / float(totalRolls) * 100 << "%" << std::endl;
 	}
 
 	return 0;

@@ -36,8 +36,8 @@ public:
 
 #ifdef Stats
 	void frequency(Space playSpace);
-	int* getFreq() { return freq; };
-	int* getFreqProp() { return freqProp; };
+	long long* getFreq() { return freq; };
+	long long* getFreqProp() { return freqProp; };
 #endif // Stats
 
 private:
@@ -55,8 +55,8 @@ private:
 	int NearestUtility(int playerNo);
 
 #ifdef Stats
-	int freq[10];
-	int freqProp[29];
+	long long freq[10];
+	long long freqProp[29];
 	long long rollCount;
 #endif // Stats
 
